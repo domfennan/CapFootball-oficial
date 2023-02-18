@@ -1,1 +1,48 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <button><a href="{% url 'login' %}">Login</a></button>
+        </div>
+        <div class="jogos-container">
+            <h2 style="text-align:center;">Jogos de hoje</h2>
+            <h3 style="text-align:center;">{{ data_atual }}</h3>
+            <ul style="list-style:none; text-align:center;">
+                {% for jogo in jogos %}
+                    <li class="jogo">
+                        <span>{{ jogo.time }}</span>
+                        <br>
+                        <span>{{ jogo.horario }}</span>
+                    </li>
+                    {% if not forloop.last %}
+                        <hr class="linha-horizontal">
+                    {% endif %}
+                {% empty %}
+                    <li>Não há jogos previstos para hoje.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+
+            <style>
+                .jogos-container {
+                    margin: 0 auto;
+                    width: 600%;
+                }
+                .linha-horizontal {
+                    width: 50%;
+                    margin: 20px auto;
+                    border: none;
+                    border-top: 1px solid #ccc;
+                }
+            
+                .jogo {
+                    margin-bottom: 20px;
+                }
+            </style>
+            
+        </div>
+    </div>
+{% endblock %}
+
