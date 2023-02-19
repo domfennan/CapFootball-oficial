@@ -5,6 +5,7 @@
         <div style="flex: 1;">
             <button><a href="{% url 'login' %}">Login</a></button>
         </div>
+        
         <div class="jogos-container">
             <h2 style="text-align:center;">Jogos de hoje</h2>
             <h3 style="text-align:center;">{{ data_atual }}</h3>
@@ -21,10 +22,15 @@
                 {% empty %}
                     <li>Não há jogos previstos para hoje.</li>
                 {% endfor %}
+                
             </ul>
         </div>
-        
-
+        <div style="flex: 1;">
+            <button><a href="{% url 'search' %}">Buscar</a></button>
+        </div>
+        <div style="flex: 1;">
+            <button><a href="{% url 'tabela' %}">Tabela</a></button>
+        </div>
             <style>
                 .jogos-container {
                     margin: 0 auto;

@@ -21,5 +21,7 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('login/', include('login.urls')),
     path('register/', include('register.urls')),
+    path('search/', include('search.urls')),
+    path('tabela/', include('tabela.urls')),
 ]
 

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'login',
     'register',
+    'search',
+    'tabela',
     
 ]
 
