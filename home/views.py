@@ -12,7 +12,8 @@ def home(request):
     jogos = [
         {'time': 'Barcelona x Real Madrid', 'horario': '12h00'},
         {'time': 'Arsenal x Liverpool', 'horario': '15h00'},
-        {'time': 'Flamengo x Palmeiras', 'horario': '18h00'}
+        {'time': 'Flamengo x Palmeiras', 'horario': '18h00'},
+        {'time': 'garra x cap', 'horario': '20h00'}
     ] # lista de jogos previstos para o dia
     return render(request, 'home.html', {'data_atual': data_atual, 'jogos': jogos})
 
