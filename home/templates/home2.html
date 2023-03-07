@@ -1,2 +1,75 @@
 {% extends "base.html" %}
 
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="bloco-1">
+        <h1 class="app-name"><a>CapFootball</a></h1>
+    </div>
+    <h2 style="text-align:center;">Jogos da Semana</h2>
+    <div class="bloco-2 d-flex justify-content-center">
+        <div class="d-flex">
+            <a class="btn btn-primary me-2" href="{% url 'login' %}" role="button">Login</a>
+            <a class="btn btn-primary me-2" href="{% url 'search' %}" role="button">Buscar</a>               
+            <a class="btn btn-primary" href="{% url 'tabela' %}" role="button">Tabela</a>                
+        </div>
+    </div>
+
+    {% block content %}
+    <title>Jogos de hoje</title>
+        <div class="jogos-container">
+            
+            <!--<h3 style="text-align:center;">{{ data_atual }}</h3>-->
+            <ul style="list-style:none; text-align:center;">
+                {% for jogo in jogos %}
+                    <li class="jogo">
+                        <span>{{ jogo.time }}</span>
+                        <br>
+                        <span>{{ jogo.dia }}</span>
+                        <span>{{ jogo.horario }}</span>
+                    </li>
+                    {% if not forloop.last %}
+                        <hr class="linha-horizontal">
+                    {% endif %}
+                {% empty %}
+                    <li>Não há jogos previstos para hoje.</li>
+                {% endfor %} 
+            </ul>
+        </div>
+
+    <style>
+        body{
+            background-color:rgb(197, 195, 72);
+            margin: 0;
+        }
+        .bloco-1 {
+            font-size: 16px;
+            background-color: white;
+            text-align: center;
+            height: 50px;
+            line-height: 50px; /* valor igual à altura definida */
+            
+        }
+        .app-name {
+            font-size: 35px;
+        }
+        .bloco-2 {            
+            
+        }
+        .jogos {
+            
+        }
+    
+    .jogos-container {
+        background-color: white;
+        padding: 20px;
+    }
+    </style>
+    
+</body>
+</html>
+
+{% endblock %},

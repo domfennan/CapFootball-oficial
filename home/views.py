@@ -10,10 +10,10 @@ from django.shortcuts import render
 def home(request):
     data_atual = date.today()
     jogos = [
-        {'time': 'Barcelona x Real Madrid', 'horario': '12h00'},
-        {'time': 'Arsenal x Liverpool', 'horario': '15h00'},
-        {'time': 'Flamengo x Palmeiras', 'horario': '18h00'},
-        {'time': 'garra x cap', 'horario': '20h00'}
+        {'time': 'Barcelona x Real Madrid', 'dia': 'sexta-feira |','horario': 'às 12h00'},
+        {'time': 'Arsenal x Liverpool', 'dia': 'sexta-feira |','horario': 'às 15h00'},
+        {'time': 'Flamengo x Palmeiras', 'dia': 'sábado |','horario': 'às 8h00'},
+        {'time': 'PSG x Bayern', 'dia': 'sábado |','horario': 'às 20h00'}
     ] # lista de jogos previstos para o dia
     return render(request, 'home.html', {'data_atual': data_atual, 'jogos': jogos})
 
