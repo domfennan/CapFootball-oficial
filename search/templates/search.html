@@ -4,10 +4,11 @@
 {% block content %}
 <title>Pesquisa de Resultados</title>
     
-        <div class="bloco-1">
+        <div class="bloco-0">
             <div style="display: flex; justify-content: center; align-items: center; height: 5vh;"></div>
             <h1>Resultados Anteriores da Equipe</h1>
             
+            <div class="bloco-1">
             <form method="GET">
                 <input type="text" name="query" value="{{ query }}">
                 <button type="submit">Buscar</button>
@@ -25,14 +26,30 @@
             {% else %}
                 <p>Nenhum resultado encontrado.</p>
             {% endif %}
+            </div>
         </div>
     
     <style>
+        body{
+            background-color:rgb(236, 170, 48);
+            margin: 0;
+        }
+        .bloco-0 {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            
+        }
         .bloco-1 {
             max-width: 600px;
             width: 100%;
             margin: 0 auto;
             text-align: center;
+            background-color: white;
+        border-radius: 10px;
+        margin: 20px auto; /* Centraliza o bloco na página */
+        padding: 20px;
         }
 
         form {
