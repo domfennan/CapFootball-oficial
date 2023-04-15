@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Dados Pessoais</h1>
+  <div class="d-flex justify-content-center">
+
+    <form class="bloco-1" action="{% url 'updados' usuario.id %}" method="POST">{% csrf_token %}
+        
+  
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="nome" name="name" class="form-control" />
+          <label class="form-label" for="nome">Nome atual: {{usuario.nome}}</label>
+        </div>
+  
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="email" name="email" class="form-control" />
+          <label class="form-label" for="email">Email atual: {{usuario.email}}</label>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="senha" name="senha" class="form-control" />
+          <label class="form-label" for="senha">Senha atual: {{usuario.senha}}</label>
+        </div>
+  
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-3 w-100">Atualizar</button>
+      </form>
+
+
+    <style>
+        body{
+            background-color:rgb(236, 170, 48);
+            margin: 0;
+        }
+        .bloco-1 {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            
+        }
+    
+    </style>
+  </div>
+</div>
+<div class="container mt-6">
+  <div class="d-flex justify-content-center">
+
+       <form class="bloco-2" action="{% url 'delete' usuario.id %}" method="POST">{% csrf_token %}
+
+          <button type="submit" class="btn btn-danger btn-block mb-1 w-100">Excluir minha conta</button>
+
+      </form>
+
+      <style>
+        .bloco-2 {
+            background-color: white;
+            border-radius: 5px;
+            padding: 30px;
+
+        }
+
+    </style>
+
+  </div>
+</div>
+{% endblock %}

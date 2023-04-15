@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
-<div class="container mt-5">
+
+<div id="form-log" class="container mt-5">
+
+  {% if messages %}
+<br>
+{% for message in messages %}
+<div class="alert {{message.tags}}">
+{{message}}
+</div>
+{% endfor %}
+{% endif %}
+
   <h1 class="text-center mb-5">Login</h1>
   <div class="d-flex justify-content-center">
 
-    <form class="bloco-1">
+    <form class="bloco-1" action="{% url 'logado'%}" method="POST">{% csrf_token %}
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control" />
+        <input type="email" id="form2Example1" name="email" class="form-control" />
         <label class="form-label" for="form2Example1">Email address</label>
       </div>
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
+        <input type="password" id="form2Example2" name="senha" class="form-control" />
         <label class="form-label" for="form2Example2">Password</label>
       </div>
 
@@ -34,11 +46,11 @@
       </div>
 
       <!-- Submit button -->
-      <button type="button" class="btn btn-primary btn-block mb-4 w-100">Entrar</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Entrar</button>
 
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Não tem uma conta? <a href="{% url 'register' %}">Registre-se</a></p>
+        <p>Não tem uma conta? <a id="ativar" href="{% url 'load' %}">Registre-se</a></p>
 
         <!--<p>or sign up with:</p>
     <button type="button" class="btn btn-link btn-floating mx-1">
@@ -59,6 +71,7 @@
 
       </div>
     </form>
+
     <style>
         body{
             background-color:rgb(236, 170, 48);
@@ -74,5 +87,6 @@
     </style>
   </div>
 </div>
+
 
 {% endblock %}

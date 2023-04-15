@@ -1,28 +1,58 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
-<div class="container mt-5">
+<script type="text/javascript" language="javascript">
+
+function validateForm (){
+if (document.getElementById("registerName").value.length < 3){
+alert('Por favor, preencha o campo nome');
+document.getElementById("registerName").focus();
+
+return false
+}
+
+if (document.getElementById("registerEmail").value.length <3/ ){
+alert('Por favor, preencha o campo email');
+document.getElementById("registerEmail").focus();
+
+return false
+}
+
+if (document.getElementById("registerPassword").value.length < 4){
+alert('Por favor, preencha o campo email');
+document.getElementById("registerPassword").focus();
+
+return false
+}
+
+}
+
+</script>
+
+
+<div  class="container mt-5">
   <h1 class="text-center mb-5">Register</h1>
   <div class="d-flex justify-content-center">
 
-    <form class="bloco-1">
+    <form class="bloco-1" name="myform" action="{% url 'cadastro' %}" onsubmit="return validateForm(this)"  method="POST">{% csrf_token %}
         
   
         <!-- Name input -->
         <div class="form-outline mb-4">
-          <input type="text" id="registerName" class="form-control" />
+          <input type="text" id="registerName" name="name" class="form-control" />
           <label class="form-label" for="registerName">Name</label>
         </div>
   
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="registerEmail" class="form-control" />
+          <input type="email" id="registerEmail" name="email" class="form-control" />
           <label class="form-label" for="registerEmail">Email</label>
         </div>
   
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="registerPassword" class="form-control" />
+          <input type="password" id="registerPassword" name="senha" class="form-control" />
           <label class="form-label" for="registerPassword">Password</label>
         </div>
   
@@ -43,7 +73,9 @@
   
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-3 w-100">Criar</button>
+        <button type="button" class="btn btn-secondary btn-block mb-3 w-100">Fechar</button>
       </form>
+
     <style>
         body{
             background-color:rgb(236, 170, 48);

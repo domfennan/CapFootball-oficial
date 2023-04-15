@@ -22,6 +22,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'search' %}">Buscar</a>
               </li>
+                 {% if usuario != null %}
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'dados' usuario.id %}">Dados de {{ usuario.nome }}</a>
+               </li>
+                {% endif%}
               <li class="nav-item">
                 <a class="nav-link " href="{% url 'tabela' %}">Tabela</a>
               </li>
@@ -44,7 +49,7 @@
     {% block content %}
     <title>Jogos da semana</title>
         <div class="jogos-container">
-            
+
             
             <ul style="list-style:none; text-align:center;">
                 {% for jogo in jogos %}
